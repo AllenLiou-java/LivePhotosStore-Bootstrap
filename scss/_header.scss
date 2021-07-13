@@ -1,0 +1,76 @@
+header {
+    .navbar {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        // border-bottom: 5px solid #FFDF65 ;
+        .navbar-brand {
+            display: block;
+            width: 111px;
+            height: 40px;
+            background: url(../img/logo.jpg);
+            background-size: cover;
+            text-indent: 101%;
+            white-space: nowrap;
+            overflow: hidden;
+            margin-right: 24px;
+        }
+    }
+
+    .navbar-nav {
+        .nav-item {
+            .nav-link {
+                padding: 12px 24px;
+                color: #636057;
+            }
+
+            .nav-link.active {
+                font-weight: bolder;
+            }
+        }
+    } 
+
+    .buttons {
+        .p-spacing {
+            padding: 5px 30px;
+        }
+    }
+    
+    .modal {
+        .hint {
+            font-size: 14px;
+            line-height: 20px;
+        }
+        a.btn {
+            font-size: 20px;
+            line-height: 29px;
+            padding-top: 12px;
+            padding-bottom: 11px;
+        }
+        .register{
+            font-size: 14px;
+            a {
+                text-decoration: none;
+                color: #FF785E;
+            }
+
+        } 
+
+        .register::before, .register::after {
+            position: absolute;
+            content: "";
+            width: calc((100% - 204px)/2);
+            height: 2px;
+            top: 10px;
+            background-color: #E8E8DB;
+        }
+
+        .register::before {
+            left: 0px;
+        }
+
+        .register::after {
+            right: 0px;
+        }
+        
+    }
+}

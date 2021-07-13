@@ -1,0 +1,24 @@
+// 專案介紹
+.content {
+    @include mobile {
+        padding-top: 32px;
+        padding-bottom: 32px;
+    }
+    .part1 {
+        h3 {
+            font-size: 24px;
+            letter-spacing: 1.92px;
+            line-height: 36px;
+            @include mobile {
+                font-size: 20px;
+                letter-spacing: 1.6px;
+                line-height: 29px;
+            }
+        }
+        p {
+            line-height: 32px;
+        }
+    }
+
+    
+}

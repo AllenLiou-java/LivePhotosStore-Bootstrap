@@ -1,0 +1,65 @@
+.sidebar {
+    // 備註：原本設定電腦版sidebar高度為一個螢幕高，變換成手機版時，若忘記更改設定，則sidebar內容會超出原先設定的100vh的設定範圍，
+    // 會產生下一個區塊內容被壓在「sidebar中超出範圍的內容」之下
+    height: 100vh;
+    top: 6rem;
+    @include mobile {
+        height: auto;
+    }
+    
+    .store-post {
+        border-radius: 8px;
+        margin-bottom: 32px;
+
+        .card-title {
+            font-size: 20px;
+            line-height: 29px;
+        }
+        .card-subtitle {
+            line-height: 24px;
+            letter-spacing: 0.7px;
+        }
+
+        .content-footer .icons a:first-child {
+            margin-right: 8px;
+        }
+
+        .content-footer>.card-link {
+            font-size: 12px;
+            .far {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 29px;
+        padding-top: 6px;
+        padding-bottom: 5px;
+        background-color: #F8F9FA ;
+        border-radius: 8px;
+    }
+
+    .recommend {
+        border-radius: 15px;
+        .card-header {
+            p {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+        .card-body {
+            .card-title {
+                font-size: 18px;
+                line-height: 27px;
+            }
+            .card-subtitle {
+                line-height: 41px;
+            }
+            .badge {
+                background-color: #E8E8DB;
+            }
+        }
+    }
+}

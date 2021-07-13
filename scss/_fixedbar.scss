@@ -1,0 +1,24 @@
+.fixedbar {
+    border: 1px solid #E8E8DB;
+    a {
+        font-family: "NotoSansCJKtc-Regular";
+        padding-top: 22px;
+        padding-bottom: 24px;
+        font-size: 16px;
+        letter-spacing: 2px;
+        line-height: 24px;
+        @include mobile {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            font-size: 14px;
+            letter-spacing: 1.75px;
+            line-height: 20px;
+        }
+    }
+
+    .nav-item .active {
+        font-family: "NotoSansCJKtc-Bold";
+        border-bottom: 2px solid #FFDF65;
+
+    }
+}

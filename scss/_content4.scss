@@ -1,0 +1,50 @@
+.part4 {
+    .hint-message {
+        margin-bottom: 32px;
+        background-color: #FEFEFE;
+        p {
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            line-height: 20px;
+
+            a {
+                color: #FF785E;
+            }
+        }
+    }
+
+    .messageList {
+        .user-info {
+            h4 {
+                letter-spacing: 2px;
+                @include mobile {
+                    font-size: 16px;
+                    letter-spacing: 1.6px;
+                }
+            }
+            p {
+                font-size: 14px;
+                letter-spacing: 2px;
+                @include mobile {
+                    font-size: 12px;
+                    letter-spacing: 1.71px;
+                }
+            }
+        }
+
+        .response {
+            background-color: #F8F9FA;
+            p:first-child {
+                color: #FF785E;
+                font-size: 14px;
+                letter-spacing: 0.61px;
+
+                @include mobile {
+                    font-size: 12px;
+                    letter-spacing: 0.53px;
+                }
+            }
+
+        }
+    }
+}

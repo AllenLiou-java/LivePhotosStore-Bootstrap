@@ -1,0 +1,48 @@
+@font-face {
+    font-family: NotoSansCJKtc-Bold;
+    src: url(../font/NotoSansCJKtc-Bold.otf);
+}
+@font-face {
+    font-family: NotoSansCJKtc-Regular;
+    src: url(../font/NotoSansCJKtc-Regular.otf);
+}
+@font-face {
+    font-family: NotoSansCJKtc-Medium;
+    src: url(../font/NotoSansCJKtc-Medium.otf);
+}
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;600&display=swap');
+
+body {
+    font-family: "NotoSansCJKtc-Bold";
+}
+
+.f-regular {
+    font-family: "NotoSansCJKtc-Regular";
+}
+
+.f-medium {
+    font-family: "NotoSansCJKtc-Medium";
+}
+
+.f-bold {
+    font-family: "NotoSansCJKtc-Bold";
+}
+
+.f-baloo-regular {
+    font-family: "Baloo Tamma 2";
+    font-weight:400;
+}
+
+.f-baloo-blod {
+    font-family: "Baloo Tamma 2";
+    font-weight:600;
+}
+
+.letter-space-2 {
+    letter-spacing: 2px;
+}
+
+.letter-space-3 {
+    letter-spacing: 3px;
+}
+

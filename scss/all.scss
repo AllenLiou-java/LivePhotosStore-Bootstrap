@@ -1,0 +1,52 @@
+@import "bootstrap/bootstrap";
+@import "font";
+@import "mixin";
+@import "header";
+@import "header_subcontent";
+@import "fixedbar";
+@import "content1";
+@import "content2";
+@import "content3";
+@import "content4";
+@import "sidebar";
+@import "form";
+@import "footer";
+
+
+// "black1": #494846,
+// "black2": #636057,
+// "black3": #858377,
+// "black4": #373A3C,
+// "black5": #F7F7F7
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+
+.btn-1:hover {
+    background-color: #FF785E;
+    border: 1px solid #FF785E !important;
+    color: #FFFFFF !important;
+}
+
+.btn-2:hover {
+    background-color: #FFDF65 ;
+    border: 1px solid #FFDF65 !important; 
+    .fas {
+        color: #FF785E;
+    }
+}
+
+
+.floatBtn button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: 1.6px;
+    line-height: 24px;
+}

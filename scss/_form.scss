@@ -1,0 +1,48 @@
+.content {
+    .proj-sponsor {
+        padding-top: 48px;
+        // padding-bottom: 48px;
+        @include mobile {
+            padding-top: 32px;
+        }
+        .caption {
+            position: relative;
+            display: block;
+        }
+        .caption::before, .caption::after {
+            content: "";
+            position: absolute;
+            top: 12px;
+            background-color: #FFDF65;
+            width: calc((100% - 136px)/2);
+            height: 3px;
+        }
+
+        .caption::before {
+            left: 0px;
+        }
+
+        .caption::after {
+            right: 0px;
+        }
+
+        form {
+            label {
+                font-family: "NotoSansCJKtc-Regular";
+            }
+    
+            input {
+                background: #F7F7F7;
+            }
+    
+            select {
+                color: #999999;
+            }
+    
+            button.btn {
+                padding: 11px 48px;
+                font-size: 20px;
+            }
+        }
+    }
+}

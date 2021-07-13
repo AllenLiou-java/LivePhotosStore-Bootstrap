@@ -1,0 +1,7 @@
+@mixin mobile {
+    @media(max-width: 376px) {
+        @content;
+    }
+}
+
+// 若使用手機尺寸375px，則設定max-width: 376px

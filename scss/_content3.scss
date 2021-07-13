@@ -1,0 +1,42 @@
+.part3 {
+    box-sizing: border-box;
+    .newsList {
+        .card {
+            @include mobile {
+                border-radius: 8px;
+            }
+        }
+
+        .card-title {
+            letter-spacing: 0.8px;
+            line-height: 24px;
+        }
+
+        img {
+            @include mobile {
+                width: 135px;
+                height: 132px;
+            }
+        }
+
+        .subtitle {
+            font-size: 14px;
+            letter-spacing: 0.49px;
+            line-height: 24px;
+        }
+
+        .card-text {
+            font-size: 14px;
+            letter-spacing: 0.7px;
+            // line-height: 20px;
+        }
+
+        .card-body {
+            a {
+                color: #FF785E;
+                font-size: 14px;
+                letter-spacing: 0.7px;
+            }
+        }
+    }
+}
