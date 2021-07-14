@@ -1,5 +1,3 @@
-# LivePhotosStore - Bootstrap5實作
- 
 # 安裝Bootstrap以修改特定樣式
 
 1. 為了能夠修改Bootstrap原先設定的樣式，需透過下載Bootstrap裡的scss檔案
@@ -290,62 +288,97 @@ npm方式：
             })()
             ```
 
-    ## JS代碼部分
+ ## JS代碼部分
 
-    為了實現以下三個功能，故透過jQuery語法進行撰寫，功能與程式碼如下：
+為了實現以下三個功能，故透過jQuery語法進行撰寫，功能與程式碼如下：
 
-    1. 位移到Nav對應的內容
+1. 取得指定的物件與body之距離
 
-        ```jsx
-        function goToNav() {
-            var windowWidth = $(window).width();
-            if(windowWidth <=576) {
-                $("html, body").scrollTop(948);
-            }else {
-                $("html, body").scrollTop(810);
-            }
+    ```jsx
+    function Cpos(x,y){
+        this.x = x;
+        this.y = y;
+    }
+
+    function GetObjPos(ATarget){
+        var target = ATarget;
+        var pos = new Cpos(target.offsetLeft, target.offsetTop);
+        var target = target.offsetParent;
+        // 當元素為body時，其parent為null
+        while(target){
+            pos.x += target.offsetLeft;
+            pos.y += target.offsetTop;
+            target = target.offsetParent;
         }
-        ```
+        return pos;
+    }
+    ```
 
-    2. 位移到Form對應的內容
+2. 位移到Nav對應的內容
 
-        ```jsx
-        function goToForm() {
-            var windowWidth = $(window).width();
-            if(windowWidth <=576) {
-                $("html, body").scrollTop(3865);
-            }else {
-                $("html, body").scrollTop(2479);
-            }
+    ```jsx
+    function goToNav() {
+        var windowWidth = $(window).width();
+        var content = document.querySelector(".content")
+        var navPos = GetObjPos(content);
+        console.log(navPos);
+        if(windowWidth <=576) {
+            $("html, body").scrollTop(navPos.y-60);
+        }else {
+            $("html, body").scrollTop(navPos.y-72);
         }
-        ```
+    }
+    ```
 
-    3. 切換到手機版時，在規定的卷軸高度出現/消失滿版的「贊助專案按鈕」
+3. 位移到Form對應的內容
 
-        ```jsx
-        $(window).scroll(function() {
-            var windowWidth = $(window).width();
-            var scrollHeight = $(window).scrollTop();
-            
-            if (windowWidth <= 576) {
-                if(scrollHeight >=948 && scrollHeight <= 3748) {
-                    if($(".floatBtn").hasClass("d-none")) {
-                        $(".floatBtn").removeClass("d-none");
-                        $(".floatBtn").addClass("d-block");
-                    }
-                }else {
-                    if($(".floatBtn").hasClass("d-block")) {
-                        $(".floatBtn").removeClass("d-block");
-                        $(".floatBtn").addClass("d-none");
-                    }
+    ```jsx
+    function goToForm() {
+        var windowWidth = $(window).width();
+        var form = document.querySelector(".proj-sponsor");
+        var navForm = GetObjPos(form);
+        if(windowWidth <=576) {
+            $("html, body").scrollTop(navForm.y-50);
+        }
+    }
+    ```
+
+4. 切換到手機版時，在規定的卷軸高度出現/消失滿版的「贊助專案按鈕」
+
+    ```jsx
+    $(window).scroll(function() {
+        var windowWidth = $(window).width();
+        // 抓取目前卷軸高度
+        var scrollHeight = $(window).scrollTop();
+
+        // 贊助按鈕出現之高度
+        var content = document.querySelector(".content")
+        var navHeight = GetObjPos(content).y-200;
+
+        // 贊助按鈕消失之高度
+        var form = document.querySelector(".proj-sponsor");
+        var formHeight = GetObjPos(form).y-70;
+        
+        if (windowWidth <=576) {
+            if(scrollHeight >= navHeight && scrollHeight <= formHeight) {
+                if($(".floatBtn").hasClass("d-none")) {
+                    $(".floatBtn").removeClass("d-none");
+                    $(".floatBtn").addClass("d-block");
+                }
+                
+            }else {
+                if($(".floatBtn").hasClass("d-block")) {
+                    $(".floatBtn").removeClass("d-block");
+                    $(".floatBtn").addClass("d-none");
                 }
             }
-        });
+        }
+    });
 
-        let a = document.querySelectorAll("a");
-        a.forEach(function(item){
-            item.addEventListener("click",function(e){
-                e.preventDefault();
-            });
+    let a = document.querySelectorAll("a");
+    a.forEach(function(item){
+        item.addEventListener("click",function(e){
+            e.preventDefault();
         });
-        ```
+    });
+    ```
