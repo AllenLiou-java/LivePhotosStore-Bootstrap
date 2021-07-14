@@ -30,7 +30,7 @@
                         </li>
                     </ul>
                     <div class="buttons">
-                        <a class="btn-1 btn btn-primary border-primary text-black2 border-2 rounded-pill mx-3 p-spacing"  data-bs-toggle="modal" data-bs-target="#staticBackdrop" href="#">登入</a>
+                        <a class="btn-1 btn btn-primary border-primary text-black2 border-2 rounded-pill mx-3 p-spacing" href="#">登入</a>
                         <a class="btn-2 btn border-black3 text-black3 border-2 rounded-pill p-spacing" href="#">註冊</a>
                     </div>
 
@@ -683,43 +683,66 @@
         })()
 
 
-        // 取得卷軸當下高度
-        // $(window).scroll(function() {
-        //     console.log($(window).scrollTop())
-        // });
+        // 取得指定的物件與body之距離
+        function Cpos(x,y){
+            this.x = x;
+            this.y = y;
+        }
+
+        function GetObjPos(ATarget){
+            var target = ATarget;
+            var pos = new Cpos(target.offsetLeft, target.offsetTop);
+            var target = target.offsetParent;
+            // 當元素為body時，其parent為null
+            while(target){
+                pos.x += target.offsetLeft;
+                pos.y += target.offsetTop;
+                target = target.offsetParent;
+            }
+            return pos;
+        }
+
 
         // 位移到Nav對應的內容
         function goToNav() {
             var windowWidth = $(window).width();
+            var content = document.querySelector(".content")
+            var navPos = GetObjPos(content);
+            console.log(navPos);
             if(windowWidth <=576) {
-                $("html, body").scrollTop(948);
+                $("html, body").scrollTop(navPos.y-60);
             }else {
-                $("html, body").scrollTop(810);
+                $("html, body").scrollTop(navPos.y-72);
             }
         }
 
         // 位移到Form對應的內容
         function goToForm() {
-            
             var windowWidth = $(window).width();
+            var form = document.querySelector(".proj-sponsor");
+            var navForm = GetObjPos(form);
             if(windowWidth <=576) {
-                $("html, body").scrollTop(3865);
-            }else {
-                $("html, body").scrollTop(2479);
+                $("html, body").scrollTop(navForm.y-50);
             }
         }
 
         
-        
-
-
         // 在規定卷軸高度出現「贊助專案按鈕」
         $(window).scroll(function() {
             var windowWidth = $(window).width();
+            // 抓取目前卷軸高度
             var scrollHeight = $(window).scrollTop();
+
+            // 贊助按鈕出現之高度
+            var content = document.querySelector(".content")
+            var navHeight = GetObjPos(content).y-200;
+
+            // 贊助按鈕消失之高度
+            var form = document.querySelector(".proj-sponsor");
+            var formHeight = GetObjPos(form).y-70;
             
             if (windowWidth <=576) {
-                if(scrollHeight >=948 && scrollHeight <= 3748) {
+                if(scrollHeight >= navHeight && scrollHeight <= formHeight) {
                     if($(".floatBtn").hasClass("d-none")) {
                         $(".floatBtn").removeClass("d-none");
                         $(".floatBtn").addClass("d-block");
@@ -732,7 +755,6 @@
                     }
                 }
             }
-            
         });
         
 
